@@ -1,4 +1,7 @@
 # GDG Lima 2017 | React - the good parts
+
+# TL;DR
+
 Este repo contiene un resumen de la charla sobre React para el GDG LIMA 2017 del pasado Noviembre.
 
 Si aún no tienes muchas experiencia con React, sería buena idea que desarrolles algunos ejemplos básicos para tener una idea más clara de los problemas que te ayudará a resolver y si es la mejor opción para tu necesidad.
@@ -7,7 +10,9 @@ Si aún no tienes muchas experiencia con React, sería buena idea que desarrolle
 
 Con esos conceptos básicos podemos continuar...
 
-### Declarative Programming
+
+## Declarative Programming
+
 No podemos hablar de Declarative Programming sin hablar de Imperative Programming, la cual podemos pensar como una manera de describir como funcionan las cosas, mientras que Declarative Programming vendría a ser una manera de describir lo que queremos conseguir.
 
 Por ejemplo, siendo Imperative al pedir un vaso con agua en un restaurant, sería decirle lo siguiente al mesero:
@@ -59,7 +64,8 @@ marker.setMap(map);
 </Gmaps>
 ```
 
-### React Elements
+## React Elements
+
 Un React Element es lo que tu quieres ver en la pantalla, pero no literal, si no una representación de un DOM node. La primera ventaja sobre esto es que los objetos en Javascript son ligeros y React puede crearlos y destruirlos sin afectar mucho el rendimiento, la segunda razón es que React es capáz de analizar los objetos, diferenciarlos y encontrar los cambios, luego actualiza el DOM solo en el lugar en donde se produjeron cambios, este proceso es llamado [reconciliation](https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e).
 
 ```javascript
@@ -84,7 +90,9 @@ Y renderizará lo siguiente
 <div id='login-btn'>Login</div>
 ```
 
-### Open Mind
+
+## Open Mind
+
 Jamás fue una buena práctica tener la lógica y los templates en el mismo lugar, pero con React este paradigma es de mucha ayuda y fue el core para pensar en components.
 ```javascript
 render() {
@@ -109,10 +117,14 @@ ReactDOM.render(
 );
 ```
 
-### Common Patterns
+
+## Common Patterns
+
 Con JSX tenemos ciertas convenciones y técnicas que debemos de conseguir
 
-#### Multi-Line
+
+**Multi-Line**
+
 ```javascript
 // Good
 <div>
@@ -141,7 +153,9 @@ return(
 );
 ```
 
-#### Multi-Properties
+
+**Multi-Properties**
+
 ```javascript
 // Good
 <myAwesomeComponent
@@ -151,7 +165,9 @@ return(
 />
 ```
 
-#### Conditionals
+
+**Conditionals**
+
 ```javascript
 // Bad
 let button;
@@ -227,14 +243,17 @@ class MyComponent extends Component {
 }
 ```
 
-#### Loops
+
+**Loops**
+
 ```javascript
 <ul>
   {items.map(item => <li>{item.title}</li>)}
 </ul>
 ```
 
-#### Control Statements
+### Control Statements
+
 Usando un paquete de node llamado [jsx-control-statements](https://www.npmjs.com/package/jsx-control-statements)
 ```console
 npm install --save jsx-control-statements
@@ -284,7 +303,8 @@ npm install --save jsx-control-statements
 ```
 Este tipo de cosas nos ayuda a tener un código mucho más entendible.
 
-#### Sub-rendering
+### Sub-rendering
+
 Porque la idea es tener nuestros components pequeños, limpios y bonitos.
 ```javascript
 class GdgComponent extends Component {
@@ -309,18 +329,24 @@ class GdgComponent extends Component {
 ```
 
 ### Documentation and Guidelines
+
 Es una muy buena prácticar tener un proyecto bien documentado y con una guía de estilos clara para el desarrollo a largo plazo, y es aquí en donde tenemos herramientas como [react-docgen](https://github.com/reactjs/react-docgen) que nos permite crear documentación de los componentes a partir de sus propTypes y defaultProps, y [Storybook](https://github.com/storybooks/storybook) que nos sirve para desarrollar y testear componentes, obteniendo como output final una guía de estilos.
 
-### Container and Presentational pattern
 
-#### Containers
+## Container and Presentational pattern
+
+
+### Containers
+
 - Manipulan data y hacen llamados a algún API
 - Pendientes del comportamiento
 - Renderizan a los Presentationals
 - Define los event handlers
 - Están definidos como clases
 
-#### Presentationals
+
+### Presentationals
+
 - Renderizan el HTML u otros componentes
 - Pendientes de lo visual
 - Reciben data de sus componentes padres en forma de props
@@ -373,8 +399,11 @@ class GeolocationContainer extends React.Component {
 ```
 En el bloque anterior tenemos un componente padre *Container* llamado **GeolocationContainer** y un componente hijo *Presentational* llamado **GeolocationPresentational**
 
-### React 16
-#### Error Handling
+## React 16
+
+
+### Error Handling
+
 Ahora tenemos un nuevo método en el ciclo de vida de un componente, **componentDidCatch** nos permite capturar los errores dentro del componente *-render, lifecycle methods, constructors-*, registrarlos y enviar un fallback para no romper la aplicación y dar una mejor experiencia al usuario.
 ```javascript
 class ErrorBoundary extends Component {
@@ -430,7 +459,9 @@ class App extends Component {
 ```
 Si por algún motivo no le paso el prop *rule* al componente *FirstRule*, la app se rompería, pero con mi *ErrorBoundary* catcheando los errores, el usuario solo obtendrá un mensaje y sabrá que algo va mal en esa parte, pero la app seguirá funcionando.
 
-#### Render Multiple Elements
+
+### Render Multiple Elements
+
 Ahora tenemos la posibilidad de renderizar más de un component/DOM node sin necesidad de un elemento wrapper.
 ```javascript
 const MoreRules = () => [
@@ -465,7 +496,9 @@ render() {
 ---//
 ```
 
-#### Render elements outside the current root
+
+### Render elements outside the current root
+
 Esta nueva funcionalidad tiene mucho potencial, ya que nos permitirá crear componentes fuera del root definido al inicio, por ejemplo para la creación de un modal.
 ```javascript
 class Modal extends Component {
@@ -523,7 +556,9 @@ class App extends Component {
 }
 ```
 
-#### Define DOM attributes
+
+### Define DOM attributes
+
 Ahora tenemos la libertad de declarar atributos customizados, siguen respetando el camelCase de los default attributes y ahora puedes usar el atributo *class* sin romper la app, pero con un warning de por medio.
 ```javascript
 //---
@@ -540,7 +575,10 @@ render() {
 }
 ---//
 ```
-#### Call setState with null to avoid triggering an update
+
+
+### Call setState with null to avoid triggering an update
+
 Ahora tenemos la posibilidad de retornar *null* en el *setState* para evitar un llamar al render de no ser necesario.
 ```javascript
 //---
