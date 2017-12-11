@@ -1,4 +1,5 @@
 # GDG Lima 2017 | React - the good parts
+Este repo contiene un resumen de la charla sobre React para el GDG LIMA 2017 del pasado Noviembre.
 
 Si aún no tienes muchas experiencia con React, sería buena idea que desarrolles algunos ejemplos básicos para tener una idea más clara de los problemas que te ayudará a resolver y si es la mejor opción para tu necesidad.
 - [Documentación oficial](https://reactjs.org/)
