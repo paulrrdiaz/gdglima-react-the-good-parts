@@ -60,7 +60,7 @@ marker.setMap(map);
 ```
 
 ### React Elements
-Un React Element que es lo que tu quieres ver en la pantalla, pero no literal, si no una representación de un DOM node. La primera ventaja sobre esto es que los objetos en Javascript son ligeros y React puede crearlos y destruirlos sin afectar mucho el rendimiento, la segunda razón es que React es capáz de analizar los objetos, diferenciarlos y encontrar los cambios, luego actualiza el DOM solo en el lugar en donde se produjeron cambios, este proceso es llamado [reconciliation](https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e).
+Un React Element es lo que tu quieres ver en la pantalla, pero no literal, si no una representación de un DOM node. La primera ventaja sobre esto es que los objetos en Javascript son ligeros y React puede crearlos y destruirlos sin afectar mucho el rendimiento, la segunda razón es que React es capáz de analizar los objetos, diferenciarlos y encontrar los cambios, luego actualiza el DOM solo en el lugar en donde se produjeron cambios, este proceso es llamado [reconciliation](https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e).
 
 ```javascript
 const element = React.createElement(
